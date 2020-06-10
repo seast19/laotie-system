@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<!-- 显示分类数据 -->
-		<el-table :data="tableData" border style="width: 100%">
+		<el-table v-loading="loadingTable" :data="tableData" border style="width: 100%">
 			<el-table-column
 				prop="category"
 				label="分类"
@@ -118,7 +118,7 @@
 <script>
 'use strict'
 
-import { request } from '../../common/utils'
+import { request,requestBG } from '../../common/utils'
 
 export default {
 	name: 'Questions',
@@ -127,7 +127,9 @@ export default {
 			inputCategory: '', //用户输入分类
 			inputDesc: '', //输入简介
 
-			tableData: [] //表格数据
+			tableData: [] ,//表格数据
+
+			loadingTable:false
 		}
 	},
 	methods: {
@@ -214,19 +216,22 @@ export default {
 
 		//   初始化分类
 		initCategory() {
-			request({
+			this.loadingTable = true
+			requestBG({
 				url: '/api/open/categorys',
 				method: 'get'
 			})
 				// _get('/api/open/categorys')
 				.then((res) => {
 					this.tableData = res.data.data
+					this.loadingTable = false
 				})
 				.catch((e) => {
 					this.$message({
 						message: '加载失败：' + e,
 						type: 'error'
 					})
+					this.loadingTable = false
 				})
 		}
 	},

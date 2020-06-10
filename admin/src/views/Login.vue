@@ -53,8 +53,9 @@
 
 		<div class="footer">
 			<p>
-				©2020 老铁题库 |
-				<a href="https://www.vaptcha.com" target="_blank">VAPTCHA</a>
+				©2020 老铁题库 
+				<!-- |
+				<a href="https://www.vaptcha.com" target="_blank">VAPTCHA</a> -->
 			</p>
 		</div>
 	</div>

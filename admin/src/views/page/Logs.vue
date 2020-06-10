@@ -1,7 +1,7 @@
 <template>
 	<div class="aaa">
 		<!--        日志列表-->
-		<el-table :data="tableData" style="width: 100%">
+		<el-table v-loading="loadingTable" :data="tableData" style="width: 100%">
 			<el-table-column prop="id" align="" label="id" width="180">
 			</el-table-column>
 			<el-table-column
@@ -46,7 +46,7 @@
 <script>
 'use strict'
 
-import { request } from '../../common/utils'
+import { request,requestBG } from '../../common/utils'
 
 export default {
 	name: 'Logs',
@@ -54,7 +54,9 @@ export default {
 		return {
 			tableData: [], //表格数据
 			page: 1, //当前页码
-			total: 0 //数据总数
+			total: 0 ,//数据总数
+
+			loadingTable:false
 		}
 	},
 
@@ -113,19 +115,22 @@ export default {
 
 		//    初始化日志
 		initLogs() {
-			request({
+			this.loadingTable=true
+			requestBG({
 				url: '/m/api/logs',
 				method: 'get'
 			})
 				.then((res) => {
 					this.tableData = res.data.data
 					this.total = res.data.num
+					this.loadingTable=false
 				})
 				.catch((e) => {
 					this.$message({
 						message: '加载失败：' + e,
 						type: 'error'
 					})
+					this.loadingTable=false
 				})
 		},
 

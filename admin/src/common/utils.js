@@ -19,12 +19,19 @@ function request(c) {
 	instance.defaults.headers.common['jtoken'] = localStorage.getItem('jwt') || ''
 
 	// 请求拦截器添加jwt
-	instance.interceptors.request.use(
+	instance.interceptors.request.use(		
 		function(config) {
-			loadingInstance1 = Loading.service({ fullscreen: true,background:'#00000026' })
+			// 添加loading
+			loadingInstance1 = Loading.service({
+				fullscreen: true,
+				background: '#00000026',
+				text:'加载中...'
+			})
+
 			return config
 		},
 		function(error) {
+
 			// 对请求错误做些什么
 			return Promise.reject(error)
 		}
@@ -33,8 +40,9 @@ function request(c) {
 	// 响应拦截器
 	instance.interceptors.response.use(
 		function(response) {
-            loadingInstance1.close()
-			let successCode = [2000, 6000, 0]
+			loadingInstance1.close()
+
+			const successCode = [2000, 6000, 0]
 			if (successCode.indexOf(response.data.code) != -1) {
 				return response
 			} else {
@@ -42,7 +50,8 @@ function request(c) {
 			}
 		},
 		function(error) {
-            loadingInstance1.close()
+			loadingInstance1.close()
+
 			// 对请求错误做些什么
 			return Promise.reject(error)
 		}
@@ -53,7 +62,6 @@ function request(c) {
 
 // 通用请求(不带loading)
 function requestBG(c) {
-	// return new Promise((resolve, reject) => {
 	// 实例化axios
 	let instance = new axios.create({
 		baseURL: apiUrl
@@ -108,4 +116,4 @@ function formatDate(timestamp) {
 	)
 }
 
-export { formatDate, request,requestBG }
+export { formatDate, request, requestBG }

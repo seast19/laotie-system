@@ -35,7 +35,7 @@
 
 		<el-container>
 			<!-- 侧边栏 -->
-			<el-aside style="max-width:200px;">
+			<el-aside style="max-width:200px;width:auto">
 				<el-menu
 					:collapse="iscollapesd"
 					:default-active="activeSidebar"
@@ -56,9 +56,16 @@
 				</el-menu>
 			</el-aside>
 
-			<!-- 正文 -->
 			<el-container>
+				<!-- 正文 -->
 				<el-main>
+					<!-- 侧边栏折叠 -->
+					<a
+						@click.prevent="iscollapesd = !iscollapesd"
+						href=""
+						class="el-icon-s-unfold"
+						id="collapseBtn"
+					></a>
 					<el-breadcrumb separator="/">
 						<!-- 面包屑 -->
 						<el-breadcrumb-item class="bread-crumb">
@@ -73,7 +80,7 @@
 				</el-main>
 
 				<!-- 脚部 -->
-				<el-footer>Copyright © {{year}} 老铁题库</el-footer>
+				<el-footer>Copyright © {{ year }} 老铁题库</el-footer>
 			</el-container>
 		</el-container>
 	</el-container>
@@ -85,7 +92,7 @@ export default {
 	name: 'Layout',
 	data() {
 		return {
-			iscollapesd: false,
+			iscollapesd: false, // 侧边导航折叠
 
 			activeNavbar: '0', //navbar当前激活项
 			activeSidebar: '0', //sidebar当前激活项
@@ -119,12 +126,12 @@ export default {
 		}
 	},
 	computed: {
-        year(){
-            let date = new Date()
-            let year = date.getFullYear()
-            return year
-        }
-    },
+		year() {
+			let date = new Date()
+			let year = date.getFullYear()
+			return year
+		}
+	},
 	methods: {
 		//   处理点击sidebar事件
 		handleSelectSidebar(key) {
@@ -172,6 +179,13 @@ export default {
 </script>
 
 <style scoped>
+#collapseBtn {
+	float: left;
+	margin-right: 10px;
+	color: black;
+	text-decoration: none;
+}
+
 .el-header {
 	padding: 0;
 }
