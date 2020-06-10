@@ -1,0 +1,80 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/select/select",
+    "pages/practise/practise",
+    "pages/practise/sx/sx",
+    "pages/practise/ct/ct",
+    "pages/practise/zt/zt",
+    "pages/practise/search/search",
+    "pages/rank/rank",
+    "pages/me/me",
+    "pages/me/log/log",
+    "pages/me/paper/paper",
+    "pages/me/setting/setting"
+  ],
+  "usingComponents": {
+    "sun-bottom-loading":"./components/sun-bottom-loading/sun-bottom-loading",
+    "van-notify": "@vant/weapp/notify",
+    "van-notice-bar": "@vant/weapp/notice-bar",
+    "van-divider": "@vant/weapp/divider",
+    "van-button": "@vant/weapp/button",
+    "van-cell": "@vant/weapp/cell",
+    "van-cell-group": "@vant/weapp/cell-group",
+    "van-radio": "@vant/weapp/radio",
+    "van-radio-group": "@vant/weapp/radio-group",
+    "van-icon": "@vant/weapp/icon",
+    "van-grid": "@vant/weapp/grid",
+    "van-grid-item": "@vant/weapp/grid-item",
+    "van-panel": "@vant/weapp/panel",
+    "van-steps": "@vant/weapp/steps",
+    "van-dropdown-menu": "@vant/weapp/dropdown-menu",
+    "van-dropdown-item": "@vant/weapp/dropdown-item",
+    "van-tabbar": "@vant/weapp/tabbar",
+    "van-tabbar-item": "@vant/weapp/tabbar-item",
+    "van-skeleton": "@vant/weapp/skeleton",
+    "van-loading": "@vant/weapp/loading",
+    "van-search": "@vant/weapp/search",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/img/icon/home-o.png",
+        "selectedIconPath": "static/img/icon/home-o1.png"
+      },
+      {
+        "pagePath": "pages/practise/practise",
+        "text": "练习",
+        "iconPath": "static/img/icon/records.png",
+        "selectedIconPath": "static/img/icon/records1.png"
+      },
+      {
+        "pagePath": "pages/rank/rank",
+        "text": "排行榜",
+        "iconPath": "static/img/icon/medel-o.png",
+        "selectedIconPath": "static/img/icon/medel-o1.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "static/img/icon/manager-o.png",
+        "selectedIconPath": "static/img/icon/manager-o1.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

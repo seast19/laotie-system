@@ -1,0 +1,14 @@
+/* pages/practise/search/search.wxss */
+
+.info-text{
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-bottom: 32rpx;
+  font-size: 30rpx;
+  color: #CCCCCC;
+}
+
+
+.content{
+  margin-bottom: 10rpx;
+}

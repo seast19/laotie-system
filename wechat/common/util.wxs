@@ -1,0 +1,93 @@
+module.exports = {
+  // 数字转题型   1=》填空题  2-》选择题 。。。
+  numToType: function (value) {
+    var text = ''
+    if (value == 1) {
+      text = '填空题'
+    } else if (value == 2) {
+      text = '选择题'
+    } else if (value == 3) {
+      text = '判断题'
+    } else if (value == 4) {
+      text = '简答题'
+    } else {
+      text = '其他'
+    }
+    return text
+  },
+
+  // 数字转练习方式
+  numToAnsMethod: function (value) {
+    var text = '顺序练习'
+    if (value === 'sx') {
+      text = '顺序练习'
+    } else if (value === 'sj') {
+      text = '随机练习'
+    } else if (value === 'ct') {
+      text = '错题回顾'
+    }
+    return text
+  },
+
+  // 等级转数字
+  gradeToNum: function (value) {
+    var text = 0
+    if (value == '初级工') {
+      text = 1
+    } else if (value == '中级工') {
+      text = 2
+    } else if (value == '高级工') {
+      text = 3
+    } else if (value == '技师') {
+      text = 4
+    } else if (value == '高级技师') {
+      text = 5
+    } else {
+      text = 6
+    }
+    return text
+  },
+
+  // 毫秒秒数转为格式化分数
+  microsecToStr: function (value) {
+    // 时间不正确则校正
+    if (value < 0) {
+      value = 0
+    }
+    if (value > 7200000) {
+      value = 7200000
+    }
+
+    var text = ''
+    var min = parseInt(value / 1000 / 60)
+    var sec = value % 60
+
+    if (sec < 10) {
+      sec = '0' + sec
+    }
+
+    return min + '′' + sec + '″'
+  },
+
+  // 时间戳ms转字符串
+  timestampToTime: function (timestamp) {
+    var date = getDate(timestamp); //时间戳为10位(s)需*1000，时间戳为13位(ms)的话不需乘1000
+    var Y = date.getFullYear() + '/';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
+    var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+
+    var h = (date.getHours() < 10 ? '0' + (date.getHours()) : date.getHours()) + ':';
+    var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+
+    return Y + M + D + h + m + s;
+  },
+
+
+  //过滤<img>标签
+  filteImgTag: function (text) {
+    var regexp = getRegExp('<img.*?>', 'g');
+    text = text.replace(regexp, "")
+    return text
+  }
+}

@@ -1,0 +1,86 @@
+<!-- pages/practise-sx/practise-sx.wxml -->
+<wxs module="myUtils" src="../../../common/util.wxs"></wxs>
+<!-- 顶部显示当前题数 -->
+<view class="count-block">
+  <text>{{myUtils.numToAnsMethod(userSelectType)}}</text>
+  <text>{{nowNum}}/{{quesList.length}}</text>
+</view>
+<!-- 显示问题、选项 -->
+<block wx:if="{{quesList.length>0||isLoaded}}">
+  <!-- 显示问题 -->
+  <view class="ques-item">
+    <text>{{currentQues.type}}</text>
+    <text>{{currentQues.q}}</text>
+  </view>
+  <!-- 显示答案 -->
+  <view>
+    <!-- 选择题选项 -->
+    <van-cell-group wx:if="{{currentQues.type==='选择题'}}" border="{{ false }}">
+      <van-cell wx:if="{{currentQues.a1}}" title="A：{{currentQues.a1}}" bind:click="handleSelectAns" data-ans="A" size="large" border="{{ false }}">
+        <van-icon wx:if="{{currentAns!=''&&'A'===currentQues.ans}}" slot="right-icon" name="passed" class="custom-icon" color="green" />
+        <van-icon wx:if="{{currentAns==='A'&&'A'!=currentQues.ans}}" slot="right-icon" name="close" class="custom-icon" color="red" />
+      </van-cell>
+      <van-cell wx:if="{{currentQues.a2}}" title="B：{{currentQues.a2}}" bind:click="handleSelectAns" data-ans="B" size="large" border="{{ false }}">
+        <van-icon wx:if="{{currentAns!=''&&'B'===currentQues.ans}}" slot="right-icon" name="passed" class="custom-icon" color="green" />
+        <van-icon wx:if="{{currentAns==='B'&&'B'!=currentQues.ans}}" slot="right-icon" name="close" class="custom-icon" color="red" />
+      </van-cell>
+      <van-cell wx:if="{{currentQues.a3}}" title="C：{{currentQues.a3}}" bind:click="handleSelectAns" data-ans="C" size="large" border="{{ false }}">
+        <van-icon wx:if="{{currentAns!=''&&'C'===currentQues.ans}}" slot="right-icon" name="passed" class="custom-icon" color="green" />
+        <van-icon wx:if="{{currentAns==='C'&&'C'!=currentQues.ans}}" slot="right-icon" name="close" class="custom-icon" color="red" />
+      </van-cell>
+      <van-cell wx:if="{{currentQues.a4}}" title="D：{{currentQues.a4}}" bind:click="handleSelectAns" data-ans="D" size="large" border="{{ false }}">
+        <van-icon wx:if="{{currentAns!=''&&'D'===currentQues.ans}}" slot="right-icon" name="passed" class="custom-icon" color="green" />
+        <van-icon wx:if="{{currentAns==='D'&&'D'!=currentQues.ans}}" slot="right-icon" name="close" class="custom-icon" color="red" />
+      </van-cell>
+    </van-cell-group>
+    <!-- 判断题选项 -->
+    <van-cell-group wx:if="{{currentQues.type==='判断题'}}" border="{{ false }}">
+      <van-cell title="A：对" bind:click="handleSelectAns" data-ans="对" size="large" border="{{ false }}">
+        <van-icon wx:if="{{currentAns!=''&&'对'===currentQues.ans}}" slot="right-icon" name="passed" class="custom-icon" color="green" />
+        <van-icon wx:if="{{currentAns==='对'&&'对'!=currentQues.ans}}" slot="right-icon" name="close" class="custom-icon" color="red" />
+      </van-cell>
+      <van-cell title="B：错" bind:click="handleSelectAns" data-ans="错" size="large" border="{{ false }}">
+        <van-icon wx:if="{{currentAns!=''&&'错'===currentQues.ans}}" slot="right-icon" name="passed" class="custom-icon" color="green" />
+        <van-icon wx:if="{{currentAns==='错'&&'错'!=currentQues.ans}}" slot="right-icon" name="close" class="custom-icon" color="red" />
+      </van-cell>
+    </van-cell-group>
+    <!-- 填空题选项 -->
+  </view>
+  <!-- 显示答案 -->
+  <view class="ans-block" wx:if="{{currentTab===2}}">
+    <view>正确答案：</view>
+    <view>{{currentQues.ans}}</view>
+  </view>
+  <!-- 上下一题按钮 -->
+  <view class="btn-block">
+    <van-button bind:click="handleBtnNext" data-num="-1" type="info">上一题</van-button>
+    <van-button bind:click="handleBtnNext" data-num="1" type="info">下一题</van-button>
+  </view>
+</block>
+<!-- 占位骨架图 -->
+<view style="margin-top:40rpx" wx:else>
+  <van-skeleton  row="7" row-width="{{['100%','100%','100','20%','20%','20%','20%']}}"/>
+</view>
+
+
+
+<!-- 答题卡组件 -->
+<sun-answer-menu 
+wx:if="{{currentTab===1}}" 
+maxNum="{{quesList.length}}"
+activeList="{{[nowNum-1]}}"
+binditemMenuChange="handleItemMenuChange">
+</sun-answer-menu>
+
+
+<!-- 底部tabbar -->
+<view>
+  <van-tabbar active="{{ currentTab }}">
+    <van-tabbar-item data-key="0" icon="star-o" bind:click="handleClickTabbar">收藏</van-tabbar-item>
+    <van-tabbar-item data-key="1" icon="records" bind:click="handleClickTabbar">
+      答题卡
+    </van-tabbar-item>
+    <van-tabbar-item data-key="2" icon="eye-o" bind:click="handleClickTabbar">答案</van-tabbar-item>
+  </van-tabbar>
+</view>
+<van-notify id="van-notify" />

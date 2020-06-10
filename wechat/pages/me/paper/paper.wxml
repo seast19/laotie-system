@@ -1,0 +1,43 @@
+<!-- pages/mypaper/mypaper.wxml -->
+<wxs module="myUtils" src="../../../common/util.wxs"></wxs>
+
+<!-- 无成绩提示 -->
+<view wx:if="{{paperList.length<=0&&isLoaded}}">
+  <view class="sun-alert-warning">当前无成绩</view>
+</view>
+
+<!-- 有成绩显示 -->
+<view bindlongpress="seletePaper" data-paperid="{{item.id}}"  class="card-item" wx:for="{{paperList}}" wx:key="index">
+  <van-cell-group border="{{ false }}">
+    <van-cell title="{{item.category.category}}" value="{{item.grade}}" border="{{ false }}"></van-cell>
+  </van-cell-group>
+  <view class="info-item">
+    <view class="score-line">成绩：{{item.score}} 分</view>
+    <view class="time-line">开始时间：{{myUtils.timestampToTime(item.start_time)}}</view>
+    <view class="time-line">结束时间：{{myUtils.timestampToTime(item.stop_time)}}</view>
+  </view>
+  <van-divider />
+</view>
+
+
+<!-- 弹出菜单 -->
+<van-action-sheet 
+show="{{ show }}" 
+actions="{{ actions }}" 
+bind:close="onCloseMenu" 
+bind:cancel="onCloseMenu" 
+bind:select="onDeleteMenu" 
+cancel-text="取消" />
+
+
+
+<!-- 提示信息 -->
+<sun-bottom-loading 
+isShowLoading="{{isShowLoading}}"
+isNoPaper="{{isNoPaper}}">
+</sun-bottom-loading>
+
+
+
+<!-- 信息节点 -->
+<van-notify id="van-notify" />

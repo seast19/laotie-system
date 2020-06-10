@@ -1,0 +1,33 @@
+/* pages/index/index.wxss */
+
+.swaper-block image {
+  width: 100%;
+}
+
+.cat-block {
+  margin-top: 50rpx;
+  /* background-color: green; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cat-item {
+  /* border: 1px solid #dddee1; */
+  border-radius: 8rpx;
+  margin: 10rpx;
+  padding: 10rpx;
+  width: 200rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cat-item image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.cat-item text {
+  text-align: center;
+}

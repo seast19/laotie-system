@@ -1,0 +1,28 @@
+<!-- pages/me/me.wxml -->
+<!-- 头像 -->
+<view class="img-block">
+  <image class="img-head" src="{{userImg}}"></image>
+  <text>{{userNickName}}</text>
+</view>
+<!-- 选项列表 -->
+<view>
+  <!-- 登录按钮 -->
+  <block wx:if="{{!loginStatus}}">
+    <view class="login-btn-block" >
+      <van-button type="primary" size="large" open-type="getUserInfo" bind:getuserinfo="handleClickLogin">
+        一键登录
+    </van-button>
+  </view>
+  </block>
+  <!-- 选项组 -->
+  <van-cell-group>
+    <van-cell title="考试记录" is-link url="/pages/me/paper/paper" />
+    <van-cell title="设置" is-link url="/pages/me/setting/setting" />
+    <van-cell title="更新日志" is-link url="/pages/me/log/log" />
+    <label for="fb">
+    <van-cell title="意见反馈" is-link open-type="feedback" />
+    </label>
+  </van-cell-group>
+
+  <button id="fb" open-type='feedback' hidden>意见反馈</button>
+</view>

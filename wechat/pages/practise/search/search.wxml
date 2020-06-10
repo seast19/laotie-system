@@ -1,0 +1,44 @@
+<!--pages/practise/search/search.wxml-->
+
+<wxs module="util" src="../../../common/util.wxs" />
+
+<!-- 搜索框 -->
+<van-search value="" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" bind:search="onSearch">
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+
+<!-- 数量提示 -->
+<view class="info-text">
+  共 {{questionsCount}} 条结果
+</view>
+
+<!-- 显示题目 -->
+<view class="content" wx:if="{{questionsList.length>0}}">
+  <van-collapse value="{{ activeNames }}" bind:change="onshowContent" accordion>
+
+    <van-collapse-item label="{{item.category.category}} - {{item.grade}}" title="{{index+1}}. {{util.filteImgTag(item.q)}}" name="{{index}}" wx:for="{{questionsList}}" wx:key="index">
+      <van-cell-group border="{{false}}">
+        <van-cell wx:if="{{item.a1}}" border="{{false}}" title="{{'A:'+item.a1}}" />
+        <van-cell wx:if="{{item.a2}}" border="{{false}}" title="{{'B:'+item.a2}}" />
+        <van-cell wx:if="{{item.a3}}" border="{{false}}" title="{{'C:'+item.a3}}" />
+        <van-cell wx:if="{{item.a4}}" border="{{false}}" title="{{'D:'+item.a4}}" />
+        <van-cell border="{{false}}" title="{{'答案: '+item.ans}}" />
+      </van-cell-group>
+    </van-collapse-item>
+
+  </van-collapse>
+</view>
+
+
+
+
+
+<!-- 提示信息 -->
+<sun-bottom-loading 
+isShowLoading="{{isShowLoading}}"
+isNoPaper="{{isFinish}}">
+</sun-bottom-loading>
+
+
+<!-- 提示 -->
+<van-toast id="van-toast" />

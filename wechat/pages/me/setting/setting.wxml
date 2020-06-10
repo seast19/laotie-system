@@ -1,0 +1,7 @@
+<!-- pages/mysetting/mysetting.wxml -->
+<view>
+  <van-cell-group>
+    <van-cell title="检查更新" is-link bind:click="handleUpdate" />
+    <van-cell value="{{currentSize}}" title="清除所有缓存" is-link bind:click="handleDelStroage" />
+  </van-cell-group>
+</view>

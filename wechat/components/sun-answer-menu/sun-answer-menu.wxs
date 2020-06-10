@@ -1,0 +1,10 @@
+module.exports = {
+  // 判断是否为激活的题目
+  isActiveNum: function(n, l) {
+    if (l.indexOf(n) != -1) {
+      return 'card-active'
+    } else {
+      return ''
+    }
+  },
+};

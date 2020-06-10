@@ -1,0 +1,7 @@
+{
+
+  "navigationBarTitleText": "正在答题",
+  "usingComponents":{
+    "sun-answer-menu":"../../../components/sun-answer-menu/sun-answer-menu"
+  }
+}

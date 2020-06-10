@@ -1,0 +1,32 @@
+<!--pages/about/about.wxml-->
+
+<!-- <view >
+<van-steps
+  steps="{{ steps }}"
+  active="{{ active }}"
+  direction="vertical"
+  active-color="#1989fa"
+/> -->
+
+<!-- </view> -->
+
+
+<view class="update-block">
+当前版本：{{logList[0].version}}
+</view>
+
+
+
+
+
+<view class="update-block" wx:for="{{logList}}" wx:key="index">
+  <view class="update-title">
+    <text> {{item.version}} </text>
+    <text> {{item.date}} </text>
+  </view>
+  <view class="update-content">
+    <view wx:for="{{item.logs}}" wx:for-index="index2" wx:for-item="item2" wx:key="index2">
+      {{item2}}
+    </view>  
+  </view>
+</view>

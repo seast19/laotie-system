@@ -1,0 +1,34 @@
+<!-- pages/index/index.wxml -->
+
+<!-- 轮播图 -->
+<view class="swaper-block">
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}">
+    <swiper-item>
+      <image mode="widthFix" style="" src="https://seast.nos-eastchina1.126.net/img/wx_laotie/zuguo_bg1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image mode="widthFix" style="" src="https://seast.nos-eastchina1.126.net/img/wx_laotie/huoche_b1.jpg"></image>
+    </swiper-item>
+    <swiper-item>
+      <image mode="widthFix" style="" src="https://seast.nos-eastchina1.126.net/img/wx_laotie/huoche_b3.jpg"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<!-- 通告栏 -->
+<van-notice-bar left-icon="https://seast.nos-eastchina1.126.net/img/wx_laotie/notice.png" text="{{info}}" />
+
+<!-- 选择分类 -->
+<view class="cat-block">
+  <navigator url="/pages/index/select/select?c={{item.id}}" wx:for="{{categoryList}}" wx:key="index">
+    <view class="cat-item">
+      <image src="https://seast.nos-eastchina1.126.net/img/wx_laotie/book1.png"></image>
+      <text>{{item.category}}</text>
+    </view>
+  </navigator>
+</view>
+
+<!-- 分割线 -->
+<van-divider contentPosition="center">{{categoryList.length>0?'·':"暂无题库"}}</van-divider>
+
+<van-notify id="van-notify" />

@@ -1,0 +1,55 @@
+<!-- pages/select/select.wxml -->
+<!-- 显示当前分类 -->
+<view class="img-block">
+  <image mode="aspectFill" src="https://seast.nos-eastchina1.126.net/img/weub-ques-sys/b2.jpg"></image>
+  <view class="title-info">
+    <text>{{categoryInfo.category}}</text>
+    <text>简介：{{categoryInfo.desc}}</text>
+  </view>
+
+
+</view>
+<!-- 显示可选等级 -->
+<block wx:if="{{categoryInfo.g1_count>0 || categoryInfo.g2_count>0|| categoryInfo.g3_count>0|| categoryInfo.g4_count>0||categoryInfo.g5_count>0|| categoryInfo.g6_count>0}}">
+  <view class="select-block">
+    <van-radio-group value="{{ currentGrade }}" bind:change="handleOptionChange">
+      <van-cell-group>
+        <van-cell wx:if="{{categoryInfo.g1_count>0}}" title="初级工" clickable data-name="初级工" bind:click="handOptionClick">
+          <van-radio slot="right-icon" name="初级工" />
+        </van-cell>
+        <van-cell wx:if="{{categoryInfo.g2_count>0}}" title="中级工" clickable data-name="中级工" bind:click="handOptionClick">
+          <van-radio slot="right-icon" name="中级工" />
+        </van-cell>
+        <van-cell wx:if="{{categoryInfo.g3_count>0}}" title="高级工" clickable data-name="高级工" bind:click="handOptionClick">
+          <van-radio slot="right-icon" name="高级工" />
+        </van-cell>
+        <van-cell wx:if="{{categoryInfo.g4_count>0}}" title="技师" clickable data-name="技师" bind:click="handOptionClick">
+          <van-radio slot="right-icon" name="技师" />
+        </van-cell>
+        <van-cell wx:if="{{categoryInfo.g5_count>0}}" title="高级技师" clickable data-name="高级技师" bind:click="handOptionClick">
+          <van-radio slot="right-icon" name="高级技师" />
+        </van-cell>
+        <van-cell wx:if="{{categoryInfo.g6_count>0}}" title="其他" clickable data-name="其他" bind:click="handOptionClick">
+          <van-radio slot="right-icon" name="其他" />
+        </van-cell>
+      </van-cell-group>
+    </van-radio-group> 
+  </view>
+
+  <!-- 确认按钮 -->
+  <view class="select-btn">
+    <van-button round size="large" type="info" bind:click="handleSelect">确认选择</van-button>
+  </view>
+</block>
+
+<!-- 无题目提示 -->
+<block wx:else >
+  <view wx:if="{{isLoaded}}">
+    <view class="sun-alert-warning">暂无题目</view>
+
+  </view>
+</block>
+
+
+<!-- 在页面内添加对应的节点 -->
+<van-notify id="van-notify" />

@@ -1,0 +1,22 @@
+{
+  "name": "wx_laotie",
+  "version": "1.0.0",
+  "description": "* 使用jwt替代token\r * 添加检查更新\r * 考试结束显示分数\r * 错题加入错题回顾",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seast19/wx_laotie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seast19/wx_laotie/issues"
+  },
+  "homepage": "https://github.com/seast19/wx_laotie#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.0.1"
+  }
+}

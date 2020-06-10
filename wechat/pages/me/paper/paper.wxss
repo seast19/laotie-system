@@ -1,0 +1,24 @@
+/* pages/mypaper/mypaper.wxss */
+
+
+.card-item{
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  margin-bottom: 10rpx;
+}
+
+.info-item{
+  margin-left: 35rpx;
+  margin-right: 35rpx;
+}
+
+.score-line{
+  font-size: 36rpx;
+  margin-bottom: 10rpx;
+}
+
+.time-line{
+  font-size: 20rxp;
+  color: #999;
+}
+

@@ -1,0 +1,21 @@
+<!--components/sun-answer-menu/sun-answer-menu.wxml-->
+<wxs module="wxs" src="./sun-answer-menu.wxs"></wxs>
+
+
+<!-- 答题卡 -->
+<view class="card-block" >
+  <view class="card-title">答题卡</view>
+  <view class="card-container">
+    <!-- 选项 -->
+    <view 
+    wx:for="{{maxNum}}" 
+    wx:key="index"     
+    class="card-item {{wxs.isActiveNum(index,activeList)}}" 
+    bindtap="handleCard" 
+    data-cardnum="{{index+1}}">
+      {{index+1}}
+    </view>
+  </view>
+</view>
+
+

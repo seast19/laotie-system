@@ -1,0 +1,30 @@
+<!-- pages/practise/practise.wxml -->
+<!-- 色块 显示选择分类 等级 选择 -->
+<view class="head-block">
+  <image src="https://seast.nos-eastchina1.126.net/img/wx_laotie/bg_huoche1.png"></image>
+  <view>
+    <view class="info-item">
+      <text>{{category}}</text>
+      <!-- <van-icon name="arrow-down" /> -->
+    </view>
+    <view class="info-item info-item2">
+      <text>{{userSelectGrade}}</text>
+      <!-- <van-icon name="arrow-down" /> -->
+    </view>
+  </view>
+</view>
+<!-- 练习方式 -->
+<view>
+  <van-grid column-num="3">
+    <van-grid-item link-type="navigateTo" url="/pages/practise/sx/sx?type=sx" icon="orders-o" text="顺序练习" />
+    <van-grid-item link-type="navigateTo" url="/pages/practise/sx/sx?type=sj" icon="orders-o" text="随机练习" />
+    <van-grid-item link-type="navigateTo" url="/pages/practise/ct/ct" icon="orders-o" text="错题回顾" info="{{countCt}}" />
+    <van-grid-item link-type="navigateTo" url="/pages/practise/zt/zt" icon="orders-o" text="真题实战" />
+    <van-grid-item link-type="navigateTo" url="/pages/practise/search/search" icon="orders-o" text="搜索题目" />
+  </van-grid>
+</view>
+<!-- tips -->
+<view class="tips-block">
+  <text>Tips：真题实战分数、耗时将综合考虑计入排行榜</text>
+</view>
+<van-notify id="van-notify" />

@@ -1,0 +1,22 @@
+/* pages/about/about.wxss */
+
+.update-block {
+  margin: 40rpx;
+}
+
+.update-title {
+  margin-bottom: 10rpx;
+}
+
+.update-title text:nth-child(1) {
+  color: #1c2438;
+}
+
+.update-title text:nth-child(2) {
+  color: #80848f;
+  font-size: small;
+}
+
+.update-content {
+  color: #495060;
+}

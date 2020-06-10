@@ -1,0 +1,14 @@
+/* components/sun-bottom-loading/sun-bottom-loading.wxss */
+
+.myloading{
+    text-align: center;
+    margin-top: 3rpx;
+    margin-bottom: 15rpx;
+}
+
+.myinfo{
+    text-align: center;
+    color: darkgrey;
+    margin-bottom: 10rpx;
+    font-size: 24rpx;
+}

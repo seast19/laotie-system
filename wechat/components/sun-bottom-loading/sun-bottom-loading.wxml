@@ -1,0 +1,12 @@
+<!--components/sun-bottom-loading/sun-bottom-loading.wxml-->
+<!--<text>components/sun-bottom-loading/sun-bottom-loading.wxml</text>-->
+
+
+<view class="myloading" wx:if="{{isShowLoading}}">
+  <van-loading size="24px" vertical></van-loading>
+</view>
+
+<view class="myinfo" wx:if="{{isNoPaper}}">
+    <text>我是有底线的</text>
+  <!--<van-divider contentPosition="center">我是有底线的</van-divider>-->
+</view>

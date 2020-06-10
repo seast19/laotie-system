@@ -1,0 +1,46 @@
+<!-- pages/rank/rank.wxml -->
+<wxs module="myUtils" src="../../common/util.wxs"></wxs>
+<view class="picker-block">
+  <!-- 选择分类 -->
+  <picker bindchange="handleChangeCategory" value="{{selectIndexCategory}}" range="{{categoryList}}" range-key="category">
+    <view class="">
+      分类：{{categoryList[selectIndexCategory].category}}
+      <van-icon name="arrow-down" />
+    </view>
+  </picker>
+  <!-- 选择等级 -->
+  <picker bindchange="handleChangeGrade" value="{{selectIndexGrade}}" range="{{gradeList}}">
+    <view class="">
+      等级：{{gradeList[selectIndexGrade]}}
+      <van-icon name="arrow-down" />
+    </view>
+  </picker>
+</view>
+<!-- 排行榜 -->
+<view class="rank-block">
+  <!-- 分割线 -->
+  <van-divider contentPosition="center" customStyle="color: #1989fa;border-color: #1989fa">
+    TOP 10
+  </van-divider>
+  <!-- 显示详细名单 -->
+  <view class="rank-item" wx:for="{{rankList}}" wx:key="index">
+    <!-- 名次 -->
+    <view class="rank-item-1">No.{{index+1}}</view>
+    <!-- 左侧头像加昵称 -->
+    <view class="rank-item-2">
+      <image src="{{item.img}}"></image>
+      <text>{{item.nick_name}}</text>
+    </view>
+    <!-- 右侧分数 -->
+    <view class="rank-item-3">
+      <text class="rank-item-3-score">{{item.score}}分</text>
+      <view class="rank-item-3-time">
+        <van-icon name="clock-o" /> {{myUtils.microsecToStr(item.span_time)}}
+      </view>
+    </view>
+  </view>
+  <!-- 无排行榜提示 -->
+  <view wx:if="{{rankList.length<=0&&isLoaded}}">
+    <view class="sun-alert-warning">暂无排行</view>
+  </view>
+</view>

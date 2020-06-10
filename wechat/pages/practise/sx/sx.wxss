@@ -1,0 +1,51 @@
+/* pages/practise-sx/practise-sx.wxss */
+
+page {
+  padding-bottom: 300rpx;
+}
+
+.count-block {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  color: #80848f;
+  border-bottom: 1rpx solid #e9eaec;
+}
+
+.ques-item {
+  padding: 30rpx;
+}
+
+
+.ques-item  text:nth-child(1) {
+  background-color: #17a2b8;
+  border-radius: 20rpx;
+  color: #fff;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+
+
+
+.ques-item  text:nth-child(2) {
+  font-size: 40rpx;
+  width: 690rpx;
+  word-wrap: break-word;
+}
+
+.ans-block {
+  margin: 20rpx;
+  padding: 20rpx;
+  background-color: #d1ecf1;
+}
+
+.btn-block {
+  position: fixed;
+  bottom: 130rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+

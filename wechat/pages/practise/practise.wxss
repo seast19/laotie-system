@@ -1,0 +1,39 @@
+/* pages/practise/practise.wxss */
+
+.head-block > image {
+  width: 750rpx;
+  height: 375rpx;
+}
+
+.head-block > view {
+  position: absolute;
+  right: 40rpx;
+  /* bottom: 200rpx; */
+  top: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.info-item { 
+  font-size: 26rpx;
+  color: #1c2438;
+  margin-bottom: 10rpx;
+  padding: 5rpx 10rpx 5rpx 10rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  text-align: right;
+  width: auto;
+}
+
+.info-item2{
+  display: inline-block
+}
+
+.tips-block{
+  margin-top: 20rpx;
+  padding-left:40rpx;
+  padding-right:40rpx;
+  color: #80848f;
+  font-size: 24rpx;
+}
