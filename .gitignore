@@ -12,7 +12,7 @@ admin/dist
 admin/node_modules
 
 wechat/node_modules
-admin/miniprogram_npm
+wechat/miniprogram_npm
 
 
 
