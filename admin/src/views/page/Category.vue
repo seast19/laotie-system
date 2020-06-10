@@ -156,15 +156,15 @@ export default {
 				method: 'get'
 			})
 				.then((res) => {
-					this.tableData = res.data.data
 					this.loadingTable = false
+					this.tableData = res.data.data
 				})
 				.catch((e) => {
+					this.loadingTable = false
 					this.$message({
 						message: '加载失败：' + e,
 						type: 'error'
 					})
-					this.loadingTable = false
 				})
 		}
 	},

@@ -121,16 +121,17 @@ export default {
 				method: 'get'
 			})
 				.then((res) => {
+					this.loadingTable=false
+
 					this.tableData = res.data.data
 					this.total = res.data.num
-					this.loadingTable=false
 				})
 				.catch((e) => {
+					this.loadingTable=false
 					this.$message({
 						message: '加载失败：' + e,
 						type: 'error'
 					})
-					this.loadingTable=false
 				})
 		},
 
